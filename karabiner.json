@@ -1,12 +1,13 @@
 {
-    "global": { "show_in_menu_bar": false },
+    "global": {
+        "show_in_menu_bar": false
+    },
     "profiles": [
         {
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Ctrl + [ to switch to english(no effect).",
-                        "enabled": false,
+                        "description": "Ctrl + [ to switch to english.",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -18,7 +19,11 @@
                                 ],
                                 "from": {
                                     "key_code": "open_bracket",
-                                    "modifiers": { "mandatory": ["left_control"] }
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
@@ -27,10 +32,16 @@
                                             "value": 1
                                         }
                                     },
-                                    { "shell_command": "im-select com.apple.keylayout.UnicodeHexInput" },
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "^com\\.apple\\.keylayout\\.UnicodeHexInput$"
+                                        }
+                                    },
                                     {
                                         "key_code": "open_bracket",
-                                        "modifiers": ["left_control"]
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
                                     },
                                     {
                                         "set_variable": {
@@ -54,27 +65,53 @@
                     },
                     "simple_modifications": [
                         {
-                            "from": { "key_code": "left_command" },
-                            "to": [{ "key_code": "left_option" }]
+                            "from": {
+                                "key_code": "left_command"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_option"
+                                }
+                            ]
                         },
                         {
-                            "from": { "key_code": "left_option" },
-                            "to": [{ "key_code": "left_command" }]
+                            "from": {
+                                "key_code": "left_option"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_command"
+                                }
+                            ]
                         },
                         {
-                            "from": { "key_code": "right_command" },
-                            "to": [{ "key_code": "right_option" }]
+                            "from": {
+                                "key_code": "right_command"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "right_option"
+                                }
+                            ]
                         },
                         {
-                            "from": { "key_code": "right_option" },
-                            "to": [{ "key_code": "right_command" }]
+                            "from": {
+                                "key_code": "right_option"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "right_command"
+                                }
+                            ]
                         }
                     ]
                 }
             ],
             "name": "Default profile",
             "selected": true,
-            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+            "virtual_hid_keyboard": {
+                "keyboard_type_v2": "ansi"
+            }
         }
     ]
 }
