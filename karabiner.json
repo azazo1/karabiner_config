@@ -5,7 +5,8 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Run command then pass through Cmd-Shift-Q",
+                        "description": "Ctrl + [ to switch to english(no effect).",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -16,11 +17,8 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "q",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_shift"],
-                                        "optional": ["any"]
-                                    }
+                                    "key_code": "open_bracket",
+                                    "modifiers": { "mandatory": ["left_control"] }
                                 },
                                 "to": [
                                     {
@@ -29,10 +27,10 @@
                                             "value": 1
                                         }
                                     },
-                                    { "shell_command": "/usr/bin/osascript -e 'display dialog \"Cmd-Shift-Q pressed\" with title \"Karabiner\"'" },
+                                    { "shell_command": "im-select com.apple.keylayout.UnicodeHexInput" },
                                     {
-                                        "key_code": "q",
-                                        "modifiers": ["left_command", "left_shift"]
+                                        "key_code": "open_bracket",
+                                        "modifiers": ["left_control"]
                                     },
                                     {
                                         "set_variable": {
