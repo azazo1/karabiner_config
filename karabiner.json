@@ -1,11 +1,62 @@
 {
-    "global": {
-        "show_in_menu_bar": false
-    },
+    "global": { "show_in_menu_bar": false },
     "profiles": [
         {
             "complex_modifications": {
                 "rules": [
+                    {
+                        "description": "Escape to switch to english.",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "csq_passthrough_guard_esc",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "escape",
+                                    "modifiers": {}
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "csq_passthrough_guard_esc",
+                                            "value": 1
+                                        }
+                                    },
+                                    { "select_input_source": { "input_source_id": "^com\\.apple\\.keylayout\\.UnicodeHexInput$" } },
+                                    { "key_code": "escape" },
+                                    {
+                                        "set_variable": {
+                                            "name": "csq_passthrough_guard_esc",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "cmd+shift+q to screen shot using snippet",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": { "mandatory": ["left_command", "left_shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f13",
+                                        "modifiers": ["left_command", "left_shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
                     {
                         "description": "Ctrl + [ to switch to english.",
                         "manipulators": [
@@ -19,11 +70,7 @@
                                 ],
                                 "from": {
                                     "key_code": "open_bracket",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ]
-                                    }
+                                    "modifiers": { "mandatory": ["left_control"] }
                                 },
                                 "to": [
                                     {
@@ -32,16 +79,10 @@
                                             "value": 1
                                         }
                                     },
-                                    {
-                                        "select_input_source": {
-                                            "input_source_id": "^com\\.apple\\.keylayout\\.UnicodeHexInput$"
-                                        }
-                                    },
+                                    { "select_input_source": { "input_source_id": "^com\\.apple\\.keylayout\\.UnicodeHexInput$" } },
                                     {
                                         "key_code": "open_bracket",
-                                        "modifiers": [
-                                            "left_control"
-                                        ]
+                                        "modifiers": ["left_control"]
                                     },
                                     {
                                         "set_variable": {
@@ -65,53 +106,78 @@
                     },
                     "simple_modifications": [
                         {
-                            "from": {
-                                "key_code": "left_command"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_option"
-                                }
-                            ]
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_option" }]
                         },
                         {
-                            "from": {
-                                "key_code": "left_option"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_command"
-                                }
-                            ]
+                            "from": { "key_code": "left_option" },
+                            "to": [{ "key_code": "left_command" }]
                         },
                         {
-                            "from": {
-                                "key_code": "right_command"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "right_option"
-                                }
-                            ]
+                            "from": { "key_code": "right_command" },
+                            "to": [{ "key_code": "right_option" }]
                         },
                         {
-                            "from": {
-                                "key_code": "right_option"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "right_command"
-                                }
-                            ]
+                            "from": { "key_code": "right_option" },
+                            "to": [{ "key_code": "right_command" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 4229,
+                        "vendor_id": 14139
+                    },
+                    "ignore": true,
+                    "ignore_vendor_events": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 641,
+                        "vendor_id": 1452
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "apple_vendor_top_case_key_code": "keyboard_fn" },
+                            "to": [{ "key_code": "left_control" }]
+                        },
+                        {
+                            "from": { "key_code": "left_control" },
+                            "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 64162,
+                        "vendor_id": 9639
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_option" }]
+                        },
+                        {
+                            "from": { "key_code": "left_option" },
+                            "to": [{ "key_code": "left_command" }]
+                        },
+                        {
+                            "from": { "key_code": "right_command" },
+                            "to": [{ "key_code": "right_option" }]
+                        },
+                        {
+                            "from": { "key_code": "right_option" },
+                            "to": [{ "key_code": "right_command" }]
                         }
                     ]
                 }
             ],
             "name": "Default profile",
             "selected": true,
-            "virtual_hid_keyboard": {
-                "keyboard_type_v2": "ansi"
-            }
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
         }
     ]
 }
