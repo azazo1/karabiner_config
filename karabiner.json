@@ -5,19 +5,6 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Caption+F to switch rime",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "f",
-                                    "modifiers": { "mandatory": ["caps_lock"] }
-                                },
-                                "to": [{ "select_input_source": { "input_source_id": "^im\\.rime\\.inputmethod\\.Squirrel\\.Hans$" } }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Caption to switch input method",
                         "manipulators": [
                             {
