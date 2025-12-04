@@ -8,10 +8,24 @@
                         "description": "fn + ctrl => fn, 单独按下 fn 为 ctrl, 单独按 ctrl 为 ctrl",
                         "manipulators": [
                             {
-                                "from": { "key_code": "fn" },
+                                "from": {
+                                    "key_code": "fn",
+                                    "modifiers": { "optional": ["option", "command", "shift"] }
+                                },
+                                "to": [{ "key_code": "left_control" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "fn",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
                                 "to": [
                                     {
-                                        "key_code": "left_control",
+                                        "key_code": "fn",
                                         "modifiers": []
                                     }
                                 ],
@@ -19,9 +33,9 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "fn",
+                                    "key_code": "left_control",
                                     "modifiers": {
-                                        "mandatory": ["left_control"],
+                                        "mandatory": ["control"],
                                         "optional": ["any"]
                                     }
                                 },
