@@ -10,7 +10,7 @@
                             {
                                 "from": {
                                     "key_code": "fn",
-                                    "modifiers": { "optional": ["option", "command", "shift"] }
+                                    "modifiers": { "optional": ["option", "command", "shift", "caps_lock"] }
                                 },
                                 "to": [{ "key_code": "left_control" }],
                                 "type": "basic"
