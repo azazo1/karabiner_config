@@ -5,17 +5,169 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "fn + ctrl => fn, 单独按下 fn 为 ctrl, 单独按 ctrl 为 ctrl",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "fn" },
+                                "to": [
+                                    {
+                                        "key_code": "left_control",
+                                        "modifiers": []
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "fn",
+                                    "modifiers": {
+                                        "mandatory": ["left_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "fn",
+                                        "modifiers": []
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "短按 左 Command (⌘) 切换 EN 输入法",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [{ "language": "zh-Hans" }],
+                                        "type": "input_source_if"
+                                    }
+                                ],
+                                "from": { "key_code": "left_command" },
+                                "to": [{ "key_code": "left_command" }],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": ["left_command"]
+                                    }
+                                ],
+                                "to_if_held_down": [{ "key_code": "left_command" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "短按 右 Command (⌘) 切换 ZH 输入法",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [{ "language": "zh-Hans" }],
+                                        "type": "input_source_unless"
+                                    }
+                                ],
+                                "from": { "key_code": "right_command" },
+                                "to": [{ "key_code": "right_command" }],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": ["left_command"]
+                                    }
+                                ],
+                                "to_if_held_down": [{ "key_code": "right_command" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Ctrl + [ to switch to english.",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "csq_passthrough_guard",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": { "mandatory": ["left_control"] }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "csq_passthrough_guard",
+                                            "value": 1
+                                        }
+                                    },
+                                    { "select_input_source": { "input_source_id": "^com\\.apple\\.keylayout\\.UnicodeHexInput$" } },
+                                    {
+                                        "key_code": "open_bracket",
+                                        "modifiers": ["left_control"]
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "csq_passthrough_guard",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "ctrl+cmd+e to open 调度中心",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": { "mandatory": ["control", "command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": ["control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Caption to switch input method",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "name": "caption_switch_method_doing",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": {}
                                 },
                                 "to": [
                                     {
+                                        "set_variable": {
+                                            "name": "caption_switch_method_doing",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
                                         "key_code": "spacebar",
                                         "modifiers": ["left_command"]
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "caption_switch_method_doing",
+                                            "value": 0
+                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -54,41 +206,6 @@
                         ]
                     },
                     {
-                        "description": "Escape to switch to english.",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "csq_passthrough_guard_esc",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "escape",
-                                    "modifiers": {}
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "csq_passthrough_guard_esc",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "select_input_source": { "input_source_id": "^com\\.apple\\.keylayout\\.UnicodeHexInput$" } },
-                                    { "key_code": "escape" },
-                                    {
-                                        "set_variable": {
-                                            "name": "csq_passthrough_guard_esc",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "cmd+shift+q to screen shot using snippet",
                         "manipulators": [
                             {
@@ -100,44 +217,6 @@
                                     {
                                         "key_code": "f13",
                                         "modifiers": ["left_command", "left_shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Ctrl + [ to switch to english.",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "csq_passthrough_guard",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "open_bracket",
-                                    "modifiers": { "mandatory": ["left_control"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "csq_passthrough_guard",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "select_input_source": { "input_source_id": "^com\\.apple\\.keylayout\\.UnicodeHexInput$" } },
-                                    {
-                                        "key_code": "open_bracket",
-                                        "modifiers": ["left_control"]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "csq_passthrough_guard",
-                                            "value": 0
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -182,23 +261,7 @@
                     "ignore_vendor_events": true
                 },
                 {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 641,
-                        "vendor_id": 1452
-                    },
-                    "simple_modifications": [
-                        {
-                            "from": { "apple_vendor_top_case_key_code": "keyboard_fn" },
-                            "to": [{ "key_code": "left_control" }]
-                        },
-                        {
-                            "from": { "key_code": "left_control" },
-                            "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
-                        }
-                    ]
-                },
-                {
+                    "disable_built_in_keyboard_if_exists": true,
                     "identifiers": {
                         "is_keyboard": true,
                         "product_id": 64162,
