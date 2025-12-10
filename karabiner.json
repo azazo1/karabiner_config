@@ -5,7 +5,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Capslock => Ctrl+Alt (Together with raycast switch app shortcuts)",
+                        "description": "Capslock => Ctrl+Alt (While Capslock alone still switching the ime)(Together with raycast switch app shortcuts)",
                         "manipulators": [
                             {
                                 "from": { "key_code": "caps_lock" },
@@ -13,6 +13,12 @@
                                     {
                                         "key_code": "left_option",
                                         "modifiers": ["left_control"]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": ["left_command"]
                                     }
                                 ],
                                 "type": "basic"
