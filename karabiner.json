@@ -5,6 +5,21 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Capslock => Ctrl+Alt (Together with raycast switch app shortcuts)",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "caps_lock" },
+                                "to": [
+                                    {
+                                        "key_code": "left_option",
+                                        "modifiers": ["left_control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "fn + ctrl => fn, 单独按下 fn 为 ctrl, 单独按 ctrl 为 ctrl",
                         "manipulators": [
                             {
@@ -134,25 +149,8 @@
                         ]
                     },
                     {
-                        "description": "ctrl+cmd+e to open 调度中心",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "e",
-                                    "modifiers": { "mandatory": ["control", "command"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "up_arrow",
-                                        "modifiers": ["control"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Caption to switch input method",
+                        "description": "Capslock to switch input method",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -190,6 +188,7 @@
                     },
                     {
                         "description": "Switch between Desktops",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
