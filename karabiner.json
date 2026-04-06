@@ -5,6 +5,34 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "L_Cmd + R_Cmd + Q to Command + Q, Cmd + Q to Q",
+                        "manipulators": [
+                            {
+                                "description": "L_Cmd + R_Cmd + Q to Command + Q",
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": { "mandatory": ["left_command", "right_command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": ["left_command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Cmd + Q to Q",
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [{ "key_code": "q" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Capslock => Ctrl+Alt (While Capslock alone still switching the ime)(Together with raycast switch app shortcuts)",
                         "manipulators": [
                             {
@@ -360,7 +388,6 @@
                     ]
                 },
                 {
-                    "disable_built_in_keyboard_if_exists": true,
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": true,
