@@ -5,6 +5,32 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "按下 Caps Lock 开始听写，松开 Caps Lock 停止听写",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to_after_key_up": [
+                                    {
+                                        "consumer_key_code": "dictation",
+                                        "modifiers": ["fn"]
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "consumer_key_code": "dictation",
+                                        "modifiers": ["fn"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "L_Cmd + R_Cmd + Q to Command + Q, Cmd + Q to Q",
                         "manipulators": [
                             {
