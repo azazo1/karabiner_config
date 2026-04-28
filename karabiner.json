@@ -5,6 +5,71 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "在远程控制的时候中对调左右 Command 和 Option (Alt) 键",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.netease\\.uuremote$",
+                                            "^com\\.moonlight-stream\\.Moonlight$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "左 Command 映射为 左 Option",
+                                "from": { "key_code": "left_command" },
+                                "to": [{ "key_code": "left_option" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.netease\\.uuremote$",
+                                            "^com\\.moonlight-stream\\.Moonlight$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "左 Option 映射为 左 Command",
+                                "from": { "key_code": "left_option" },
+                                "to": [{ "key_code": "left_command" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.netease\\.uuremote$",
+                                            "^com\\.moonlight-stream\\.Moonlight$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "右 Command 映射为 右 Option",
+                                "from": { "key_code": "right_command" },
+                                "to": [{ "key_code": "right_option" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.netease\\.uuremote$",
+                                            "^com\\.moonlight-stream\\.Moonlight$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "右 Option 映射为 右 Command",
+                                "from": { "key_code": "right_option" },
+                                "to": [{ "key_code": "right_command" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "左 Command 切换英文，右 Command 切换中文",
                         "manipulators": [
                             {
