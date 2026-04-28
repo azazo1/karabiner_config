@@ -5,6 +5,61 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "左 Command 切换英文，右 Command 切换中文",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [{ "language": "zh-Hans" }],
+                                        "type": "input_source_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.netease\\.uuremote$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "description": "短按 左 Command (⌘) 切换 EN 输入法 (仅在当前为中文时生效，排除 UU)",
+                                "from": { "key_code": "left_command" },
+                                "to": [{ "key_code": "left_command" }],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": ["left_command"]
+                                    }
+                                ],
+                                "to_if_held_down": [{ "key_code": "left_command" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [{ "language": "zh-Hans" }],
+                                        "type": "input_source_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.netease\\.uuremote$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "description": "短按 右 Command (⌘) 切换 ZH 输入法 (仅在当前非中文时生效，排除 UU)",
+                                "from": { "key_code": "right_command" },
+                                "to": [{ "key_code": "right_command" }],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": ["left_command"]
+                                    }
+                                ],
+                                "to_if_held_down": [{ "key_code": "right_command" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "按下 Caps Lock 开始听写，松开 Caps Lock 停止听写",
                         "enabled": false,
                         "manipulators": [
@@ -133,52 +188,6 @@
                                         "modifiers": []
                                     }
                                 ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "短按 左 Command (⌘) 切换 EN 输入法",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [{ "language": "zh-Hans" }],
-                                        "type": "input_source_if"
-                                    }
-                                ],
-                                "from": { "key_code": "left_command" },
-                                "to": [{ "key_code": "left_command" }],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": ["left_command"]
-                                    }
-                                ],
-                                "to_if_held_down": [{ "key_code": "left_command" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "短按 右 Command (⌘) 切换 ZH 输入法",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [{ "language": "zh-Hans" }],
-                                        "type": "input_source_unless"
-                                    }
-                                ],
-                                "from": { "key_code": "right_command" },
-                                "to": [{ "key_code": "right_command" }],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": ["left_command"]
-                                    }
-                                ],
-                                "to_if_held_down": [{ "key_code": "right_command" }],
                                 "type": "basic"
                             }
                         ]
