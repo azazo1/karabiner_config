@@ -75,10 +75,6 @@
                             {
                                 "conditions": [
                                     {
-                                        "input_sources": [{ "language": "zh-Hans" }],
-                                        "type": "input_source_if"
-                                    },
-                                    {
                                         "bundle_identifiers": [
                                             "^com\\.netease\\.uuremote$"
                                         ],
@@ -90,8 +86,8 @@
                                 "to": [{ "key_code": "left_command" }],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "spacebar",
-                                        "modifiers": ["left_command"]
+                                        "key_code": "f1",
+                                        "modifiers": ["left_control", "left_shift", "left_alt"]
                                     }
                                 ],
                                 "to_if_held_down": [{ "key_code": "left_command" }],
@@ -99,10 +95,6 @@
                             },
                             {
                                 "conditions": [
-                                    {
-                                        "input_sources": [{ "language": "zh-Hans" }],
-                                        "type": "input_source_unless"
-                                    },
                                     {
                                         "bundle_identifiers": [
                                             "^com\\.netease\\.uuremote$"
@@ -115,8 +107,8 @@
                                 "to": [{ "key_code": "right_command" }],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "spacebar",
-                                        "modifiers": ["left_command"]
+                                        "key_code": "f2",
+                                        "modifiers": ["left_control", "left_shift", "left_alt"]
                                     }
                                 ],
                                 "to_if_held_down": [{ "key_code": "right_command" }],
@@ -191,8 +183,8 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "spacebar",
-                                        "modifiers": ["left_command"]
+                                        "key_code": "f3",
+                                        "modifiers": ["left_control", "left_shift", "left_alt"]
                                     }
                                 ],
                                 "type": "basic"
@@ -279,7 +271,10 @@
                                             "value": 1
                                         }
                                     },
-                                    { "select_input_source": { "input_source_id": "^com\\.apple\\.keylayout\\.UnicodeHexInput$" } },
+                                    {
+                                        "key_code": "f1",
+                                        "modifiers": ["left_control", "left_alt", "left_shift"]
+                                    },
                                     {
                                         "key_code": "open_bracket",
                                         "modifiers": ["left_control"]
