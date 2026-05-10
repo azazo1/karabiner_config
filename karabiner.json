@@ -272,12 +272,12 @@
                                         }
                                     },
                                     {
-                                        "key_code": "f1",
-                                        "modifiers": ["left_control", "left_alt", "left_shift"]
-                                    },
-                                    {
                                         "key_code": "open_bracket",
                                         "modifiers": ["left_control"]
+                                    },
+                                    {
+                                        "key_code": "f1",
+                                        "modifiers": ["left_control", "left_alt", "left_shift"]
                                     },
                                     {
                                         "set_variable": {
