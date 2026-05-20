@@ -187,6 +187,15 @@
                         "description": "Capslock => Ctrl+Alt (While Capslock alone still switching the ime)(Together with raycast switch app shortcuts)",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.netease\\.uuremote$",
+                                            "^com\\.moonlight-stream\\.Moonlight$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
                                 "from": { "key_code": "caps_lock" },
                                 "to": [
                                     {
@@ -203,6 +212,15 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.netease\\.uuremote$",
+                                            "^com\\.moonlight-stream\\.Moonlight$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": { "mandatory": ["left_shift"] }
