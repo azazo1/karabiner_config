@@ -372,7 +372,7 @@
                         ]
                     },
                     {
-                        "description": "Ctrl + [ to switch to english.",
+                        "description": "Ctrl + [ to switch to english (串流时无效).",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -380,6 +380,13 @@
                                         "name": "csq_passthrough_guard",
                                         "type": "variable_if",
                                         "value": 0
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.netease\\.uuremote$",
+                                            "^com\\.moonlight-stream\\.Moonlight$"
+                                        ],
+                                        "type": "frontmost_application_unless"
                                     }
                                 ],
                                 "from": {
