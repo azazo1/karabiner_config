@@ -247,32 +247,6 @@
                         ]
                     },
                     {
-                        "description": "按下 Caps Lock 开始听写，松开 Caps Lock 停止听写",
-                        "enabled": false,
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to_after_key_up": [
-                                    {
-                                        "consumer_key_code": "dictation",
-                                        "modifiers": ["fn"]
-                                    }
-                                ],
-                                "to_if_held_down": [
-                                    {
-                                        "consumer_key_code": "dictation",
-                                        "modifiers": ["fn"],
-                                        "repeat": false
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "L_Cmd + R_Cmd + Q to Command + Q, Cmd + Q to Q",
                         "manipulators": [
                             {
@@ -439,6 +413,24 @@
                         ]
                     },
                     {
+                        "description": "cmd+shift+q to screen shot using snipaste",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": { "mandatory": ["left_command", "left_shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f13",
+                                        "modifiers": ["left_command", "left_shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Capslock to switch input method",
                         "enabled": false,
                         "manipulators": [
@@ -509,17 +501,25 @@
                         ]
                     },
                     {
-                        "description": "cmd+shift+q to screen shot using snippet",
+                        "description": "按下 Caps Lock 开始听写，松开 Caps Lock 停止听写",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "q",
-                                    "modifiers": { "mandatory": ["left_command", "left_shift"] }
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [
+                                "to_after_key_up": [
                                     {
-                                        "key_code": "f13",
-                                        "modifiers": ["left_command", "left_shift"]
+                                        "consumer_key_code": "dictation",
+                                        "modifiers": ["fn"]
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "consumer_key_code": "dictation",
+                                        "modifiers": ["fn"],
+                                        "repeat": false
                                     }
                                 ],
                                 "type": "basic"
