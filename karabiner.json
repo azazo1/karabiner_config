@@ -5,6 +5,24 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Cmd+Space -> Space (in Zen Browser)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": []
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Sinisistar2 键位 (仅针对 SiNiSistar2.exe 生效)",
                         "enabled": false,
                         "manipulators": [
