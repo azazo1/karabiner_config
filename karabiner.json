@@ -1,5 +1,8 @@
 {
-    "global": { "show_in_menu_bar": false },
+    "global": {
+        "check_for_updates_on_startup": false,
+        "show_in_menu_bar": false
+    },
     "profiles": [
         {
             "complex_modifications": {
@@ -218,7 +221,7 @@
                         ]
                     },
                     {
-                        "description": "左 Command 切换英文，右 Command 切换中文",
+                        "description": "左 Command 切换英文, 右 Command 切换中文",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -229,13 +232,12 @@
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
-                                "description": "短按 左 Command (⌘) 切换 EN 输入法 (仅在当前为中文时生效，排除 UU)",
+                                "description": "短按 左 Command (Cmd) 发送 RShift 切换 EN 输入法, 排除 UU",
                                 "from": { "key_code": "left_command" },
                                 "to": [{ "key_code": "left_command" }],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "f1",
-                                        "modifiers": ["left_control", "left_shift", "left_alt"]
+                                        "key_code": "right_shift"
                                     }
                                 ],
                                 "to_if_held_down": [{ "key_code": "left_command" }],
@@ -250,13 +252,12 @@
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
-                                "description": "短按 右 Command (⌘) 切换 ZH 输入法 (仅在当前非中文时生效，排除 UU)",
+                                "description": "短按 右 Command (Cmd) 发送 ROption 切换 ZH 输入法, 排除 UU",
                                 "from": { "key_code": "right_command" },
                                 "to": [{ "key_code": "right_command" }],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "f2",
-                                        "modifiers": ["left_control", "left_shift", "left_alt"]
+                                        "key_code": "right_option"
                                     }
                                 ],
                                 "to_if_held_down": [{ "key_code": "right_command" }],
@@ -423,8 +424,7 @@
                                         "modifiers": ["left_control"]
                                     },
                                     {
-                                        "key_code": "f1",
-                                        "modifiers": ["left_control", "left_alt", "left_shift"]
+                                        "key_code": "right_shift"
                                     },
                                     {
                                         "set_variable": {
