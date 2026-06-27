@@ -127,6 +127,61 @@
                         ]
                     },
                     {
+                        "description": "Right Option long press starts dictation",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_option",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 500,
+                                    "basic.to_if_held_down_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_option",
+                                        "lazy": true
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "right_option" }],
+                                "to_if_held_down": [
+                                    {
+                                        "set_variable": {
+                                            "name": "right_option_dictation_active",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "consumer_key_code": "dictation",
+                                        "modifiers": ["fn"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "conditions": [
+                                            {
+                                                "name": "right_option_dictation_active",
+                                                "type": "variable_if",
+                                                "value": 1
+                                            }
+                                        ],
+                                        "consumer_key_code": "dictation",
+                                        "modifiers": ["fn"]
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "right_option_dictation_active",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Sinisistar2 键位 (仅针对 SiNiSistar2.exe 生效)",
                         "enabled": false,
                         "manipulators": [
