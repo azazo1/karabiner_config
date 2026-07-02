@@ -8,7 +8,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Cmd+Space -> Space (in Zen Browser)",
+                        "description": "Cmd+Space -> Space (Zen Browser only)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -34,7 +34,7 @@
                         ]
                     },
                     {
-                        "description": "Right Option + F1-F12 to system function keys",
+                        "description": "Right Option+F1-F12 -> system function keys",
                         "manipulators": [
                             {
                                 "from": {
@@ -135,7 +135,7 @@
                         ]
                     },
                     {
-                        "description": "Right Option long press starts dictation",
+                        "description": "Right Option tap -> Right Option, hold -> Ctrl+Shift+F13 (Start dictation), release -> Ctrl+Shift+F14 (End Dictation)",
                         "manipulators": [
                             {
                                 "from": {
@@ -190,7 +190,7 @@
                         ]
                     },
                     {
-                        "description": "Sinisistar2 键位 (仅针对 SiNiSistar2.exe 生效)",
+                        "description": "SiNiSistar2 key remaps (SiNiSistar2.exe only)",
                         "enabled": false,
                         "manipulators": [
                             {
@@ -295,7 +295,7 @@
                         ]
                     },
                     {
-                        "description": "将 Shift + Space 改为普通的 Space (防止误触)",
+                        "description": "Shift+Space -> Space",
                         "manipulators": [
                             {
                                 "from": {
@@ -308,7 +308,7 @@
                         ]
                     },
                     {
-                        "description": "在远程控制的时候中对调左右 Command 和 Option (Alt) 键",
+                        "description": "Remote controlling: swap Command and Option",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -320,7 +320,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "左 Command 映射为 左 Option",
+                                "description": "Left Command -> Left Option",
                                 "from": {
                                     "key_code": "left_command",
                                     "modifiers": { "optional": ["any"] }
@@ -338,7 +338,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "左 Option 映射为 左 Command",
+                                "description": "Left Option -> Left Command",
                                 "from": {
                                     "key_code": "left_option",
                                     "modifiers": { "optional": ["any"] }
@@ -356,7 +356,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "右 Command 映射为 右 Option",
+                                "description": "Right Command -> Right Option",
                                 "from": {
                                     "key_code": "right_command",
                                     "modifiers": { "optional": ["any"] }
@@ -374,7 +374,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "右 Option 映射为 右 Command",
+                                "description": "Right Option -> Right Command",
                                 "from": {
                                     "key_code": "right_option",
                                     "modifiers": { "optional": ["any"] }
@@ -385,7 +385,7 @@
                         ]
                     },
                     {
-                        "description": "左 Command 切换英文, 右 Command 切换中文",
+                        "description": "Command tap -> input method switch (left for en, right for zh)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -396,7 +396,7 @@
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
-                                "description": "短按 左 Command (Cmd) 发送 RShift 切换 EN 输入法, 排除 UU",
+                                "description": "Left Command tap -> Right Shift (EN), hold -> Left Command",
                                 "from": { "key_code": "left_command" },
                                 "to": [{ "key_code": "left_command" }],
                                 "to_if_alone": [
@@ -416,7 +416,7 @@
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
-                                "description": "短按 右 Command (Cmd) 发送 ROption 切换 ZH 输入法, 排除 UU",
+                                "description": "Right Command tap -> Right Option (ZH), hold -> Right Command",
                                 "from": { "key_code": "right_command" },
                                 "to": [{ "key_code": "right_command" }],
                                 "to_if_alone": [
@@ -430,10 +430,10 @@
                         ]
                     },
                     {
-                        "description": "L_Cmd + R_Cmd + Q to Command + Q, Cmd + Q to Q",
+                        "description": "L_Cmd+R_Cmd+Q -> Cmd+Q, Cmd+Q -> Q",
                         "manipulators": [
                             {
-                                "description": "L_Cmd + R_Cmd + Q to Command + Q",
+                                "description": "L_Cmd+R_Cmd+Q -> Cmd+Q",
                                 "from": {
                                     "key_code": "q",
                                     "modifiers": { "mandatory": ["left_command", "right_command"] }
@@ -447,7 +447,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Cmd + Q to Q",
+                                "description": "Cmd+Q -> Q",
                                 "from": {
                                     "key_code": "q",
                                     "modifiers": { "mandatory": ["command"] }
@@ -458,7 +458,7 @@
                         ]
                     },
                     {
-                        "description": "Capslock => Ctrl+Alt (While Capslock alone still switching the ime)(Together with raycast switch app shortcuts)",
+                        "description": "Caps Lock -> Ctrl+Option (as modifier), tap -> Ctrl+Shift+Option+F3",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -510,7 +510,7 @@
                         ]
                     },
                     {
-                        "description": "fn + ctrl => fn, 单独按下 fn 为 ctrl, 单独按 ctrl 为 ctrl",
+                        "description": "Fn -> Ctrl, Ctrl+Fn -> Fn",
                         "manipulators": [
                             {
                                 "from": {
@@ -555,7 +555,7 @@
                         ]
                     },
                     {
-                        "description": "Ctrl + [ to switch to english (串流时无效).",
+                        "description": "Ctrl+[ -> Ctrl+[ then Right Shift (disabled while remote controlling)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -602,7 +602,7 @@
                         ]
                     },
                     {
-                        "description": "cmd+shift+q to screen shot using snipaste",
+                        "description": "Cmd+Shift+Q -> Snipaste screenshot",
                         "manipulators": [
                             {
                                 "from": {
@@ -620,7 +620,7 @@
                         ]
                     },
                     {
-                        "description": "Capslock to switch input method",
+                        "description": "Caps Lock -> input method switch",
                         "enabled": false,
                         "manipulators": [
                             {
@@ -658,7 +658,7 @@
                         ]
                     },
                     {
-                        "description": "Switch between Desktops",
+                        "description": "Shift+Option+H/L -> previous/next desktop",
                         "enabled": false,
                         "manipulators": [
                             {
@@ -690,7 +690,7 @@
                         ]
                     },
                     {
-                        "description": "按下 Caps Lock 开始听写，松开 Caps Lock 停止听写",
+                        "description": "Caps Lock hold -> dictation, release -> stop dictation",
                         "enabled": false,
                         "manipulators": [
                             {
