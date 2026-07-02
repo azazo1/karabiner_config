@@ -8,7 +8,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Cmd+Space -> Space (Zen Browser only)",
+                        "description": "Zen 空格输入 - Cmd+Space",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -34,7 +34,7 @@
                         ]
                     },
                     {
-                        "description": "Right Option+F1-F12 -> system function keys",
+                        "description": "系统功能键 - Right Option+F1-F12",
                         "manipulators": [
                             {
                                 "from": {
@@ -135,7 +135,7 @@
                         ]
                     },
                     {
-                        "description": "Right Option tap -> Right Option, hold -> Ctrl+Shift+F13 (Start dictation), release -> Ctrl+Shift+F14 (End Dictation)",
+                        "description": "按住听写 - Right Option",
                         "manipulators": [
                             {
                                 "from": {
@@ -190,7 +190,7 @@
                         ]
                     },
                     {
-                        "description": "SiNiSistar2 key remaps (SiNiSistar2.exe only)",
+                        "description": "SiNiSistar2 游戏键位 - SiNiSistar2.exe",
                         "enabled": false,
                         "manipulators": [
                             {
@@ -295,7 +295,7 @@
                         ]
                     },
                     {
-                        "description": "Shift+Space -> Space",
+                        "description": "防误触空格 - Shift+Space",
                         "manipulators": [
                             {
                                 "from": {
@@ -308,7 +308,7 @@
                         ]
                     },
                     {
-                        "description": "Remote controlling: swap Command and Option",
+                        "description": "远程控制按键交换 - Command/Option",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -320,7 +320,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Left Command -> Left Option",
+                                "description": "远程发送左 Option - Left Command",
                                 "from": {
                                     "key_code": "left_command",
                                     "modifiers": { "optional": ["any"] }
@@ -338,7 +338,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Left Option -> Left Command",
+                                "description": "远程发送左 Command - Left Option",
                                 "from": {
                                     "key_code": "left_option",
                                     "modifiers": { "optional": ["any"] }
@@ -356,7 +356,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Right Command -> Right Option",
+                                "description": "远程发送右 Option - Right Command",
                                 "from": {
                                     "key_code": "right_command",
                                     "modifiers": { "optional": ["any"] }
@@ -374,7 +374,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Right Option -> Right Command",
+                                "description": "远程发送右 Command - Right Option",
                                 "from": {
                                     "key_code": "right_option",
                                     "modifiers": { "optional": ["any"] }
@@ -385,7 +385,7 @@
                         ]
                     },
                     {
-                        "description": "Command tap -> input method switch (left for en, right for zh)",
+                        "description": "输入法切换 - Command",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -396,7 +396,7 @@
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
-                                "description": "Left Command tap -> Right Shift (EN), hold -> Left Command",
+                                "description": "英文输入法 - Left Command",
                                 "from": { "key_code": "left_command" },
                                 "to": [{ "key_code": "left_command" }],
                                 "to_if_alone": [
@@ -416,7 +416,7 @@
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
-                                "description": "Right Command tap -> Right Option (ZH), hold -> Right Command",
+                                "description": "中文输入法 - Right Command",
                                 "from": { "key_code": "right_command" },
                                 "to": [{ "key_code": "right_command" }],
                                 "to_if_alone": [
@@ -430,10 +430,10 @@
                         ]
                     },
                     {
-                        "description": "L_Cmd+R_Cmd+Q -> Cmd+Q, Cmd+Q -> Q",
+                        "description": "退出快捷键保护 - Cmd+Q",
                         "manipulators": [
                             {
-                                "description": "L_Cmd+R_Cmd+Q -> Cmd+Q",
+                                "description": "正常退出 - L_Cmd+R_Cmd+Q",
                                 "from": {
                                     "key_code": "q",
                                     "modifiers": { "mandatory": ["left_command", "right_command"] }
@@ -447,7 +447,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Cmd+Q -> Q",
+                                "description": "防误退出 - Cmd+Q",
                                 "from": {
                                     "key_code": "q",
                                     "modifiers": { "mandatory": ["command"] }
@@ -458,7 +458,7 @@
                         ]
                     },
                     {
-                        "description": "Caps Lock -> Ctrl+Option (as modifier), tap -> Ctrl+Shift+Option+F3",
+                        "description": "应用切换修饰层 - Caps Lock",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -510,7 +510,7 @@
                         ]
                     },
                     {
-                        "description": "Fn -> Ctrl, Ctrl+Fn -> Fn",
+                        "description": "Fn/Ctrl 交换 - Fn, Ctrl+Fn",
                         "manipulators": [
                             {
                                 "from": {
@@ -555,7 +555,7 @@
                         ]
                     },
                     {
-                        "description": "Ctrl+[ -> Ctrl+[ then Right Shift (disabled while remote controlling)",
+                        "description": "切换成英文 - Ctrl+[",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -602,7 +602,7 @@
                         ]
                     },
                     {
-                        "description": "Cmd+Shift+Q -> Snipaste screenshot",
+                        "description": "Snipaste 截图 - Cmd+Shift+Q",
                         "manipulators": [
                             {
                                 "from": {
@@ -620,7 +620,7 @@
                         ]
                     },
                     {
-                        "description": "Caps Lock -> input method switch",
+                        "description": "输入法切换 - Caps Lock",
                         "enabled": false,
                         "manipulators": [
                             {
@@ -658,7 +658,7 @@
                         ]
                     },
                     {
-                        "description": "Shift+Option+H/L -> previous/next desktop",
+                        "description": "桌面切换 - Shift+Option+H/L",
                         "enabled": false,
                         "manipulators": [
                             {
@@ -690,7 +690,7 @@
                         ]
                     },
                     {
-                        "description": "Caps Lock hold -> dictation, release -> stop dictation",
+                        "description": "按住听写 - Caps Lock",
                         "enabled": false,
                         "manipulators": [
                             {
