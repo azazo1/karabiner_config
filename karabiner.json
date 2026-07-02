@@ -148,13 +148,13 @@
                                 "to_if_held_down": [
                                     {
                                         "set_variable": {
-                                            "name": "right_option_dictation_active",
+                                            "name": "right_option_long_press_active",
                                             "value": 1
                                         }
                                     },
                                     {
-                                        "consumer_key_code": "dictation",
-                                        "modifiers": ["fn"],
+                                        "key_code": "f13",
+                                        "modifiers": ["left_control", "left_shift"],
                                         "repeat": false
                                     }
                                 ],
@@ -162,17 +162,17 @@
                                     {
                                         "conditions": [
                                             {
-                                                "name": "right_option_dictation_active",
+                                                "name": "right_option_long_press_active",
                                                 "type": "variable_if",
                                                 "value": 1
                                             }
                                         ],
-                                        "consumer_key_code": "dictation",
-                                        "modifiers": ["fn"]
+                                        "key_code": "f14",
+                                        "modifiers": ["left_control", "left_shift"]
                                     },
                                     {
                                         "set_variable": {
-                                            "name": "right_option_dictation_active",
+                                            "name": "right_option_long_press_active",
                                             "value": 0
                                         }
                                     }
