@@ -152,20 +152,6 @@
                                         "lazy": true
                                     }
                                 ],
-                                "to_if_alone": [{ "key_code": "right_option" }],
-                                "to_if_held_down": [
-                                    {
-                                        "set_variable": {
-                                            "name": "right_option_long_press_active",
-                                            "value": 1
-                                        }
-                                    },
-                                    {
-                                        "key_code": "f13",
-                                        "modifiers": ["left_control", "left_shift"],
-                                        "repeat": false
-                                    }
-                                ],
                                 "to_after_key_up": [
                                     {
                                         "conditions": [
@@ -183,6 +169,20 @@
                                             "name": "right_option_long_press_active",
                                             "value": 0
                                         }
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "right_option" }],
+                                "to_if_held_down": [
+                                    {
+                                        "set_variable": {
+                                            "name": "right_option_long_press_active",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key_code": "f13",
+                                        "modifiers": ["left_control", "left_shift"],
+                                        "repeat": false
                                     }
                                 ],
                                 "type": "basic"
@@ -399,11 +399,7 @@
                                 "description": "英文输入法 - Left Command",
                                 "from": { "key_code": "left_command" },
                                 "to": [{ "key_code": "left_command" }],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "right_shift"
-                                    }
-                                ],
+                                "to_if_alone": [{ "key_code": "right_shift" }],
                                 "to_if_held_down": [{ "key_code": "left_command" }],
                                 "type": "basic"
                             },
@@ -419,11 +415,7 @@
                                 "description": "中文输入法 - Right Command",
                                 "from": { "key_code": "right_command" },
                                 "to": [{ "key_code": "right_command" }],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "right_option"
-                                    }
-                                ],
+                                "to_if_alone": [{ "key_code": "right_option" }],
                                 "to_if_held_down": [{ "key_code": "right_command" }],
                                 "type": "basic"
                             }
@@ -587,9 +579,7 @@
                                         "key_code": "open_bracket",
                                         "modifiers": ["left_control"]
                                     },
-                                    {
-                                        "key_code": "right_shift"
-                                    },
+                                    { "key_code": "right_shift" },
                                     {
                                         "set_variable": {
                                             "name": "csq_passthrough_guard",
@@ -852,6 +842,10 @@
                         {
                             "from": { "key_code": "right_option" },
                             "to": [{ "key_code": "right_command" }]
+                        },
+                        {
+                            "from": { "key_code": "application" },
+                            "to": [{ "key_code": "right_option" }]
                         }
                     ]
                 }
